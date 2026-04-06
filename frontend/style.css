@@ -219,3 +219,42 @@ footer {
   font-weight: 500;
   letter-spacing: 0.5px;
 }
+
+/* Skills Grid */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.5);
+  padding: 40px 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(214, 51, 132, 0.15);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.skill-icon {
+  font-size: 45px;
+  margin-bottom: 15px;
+  animation: pulse 3s infinite;
+}
+
+.skill-card h3 {
+  margin: 0;
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+}
