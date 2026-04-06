@@ -83,3 +83,26 @@ function scrollToSection() {
         projectsSection.scrollIntoView({ behavior: 'smooth' });
     }
 }
+
+// Scroll Reveal Animation Logic
+document.addEventListener('DOMContentLoaded', () => {
+    const reveals = document.querySelectorAll('.reveal');
+    
+    if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        reveals.forEach(reveal => {
+            revealObserver.observe(reveal);
+        });
+    } else {
+        // Fallback for older browsers
+        reveals.forEach(reveal => reveal.classList.add('active'));
+    }
+});
