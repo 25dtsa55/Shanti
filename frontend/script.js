@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const contactForm = document.getElementById('contactForm');
+    const contactForm = document.getElementById('form');
     const responseMessage = document.getElementById('form-response');
 
     contactForm.addEventListener('submit', async (e) => {
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         try {
             // Update button UI
-            const submitBtn = contactForm.querySelector('.btn-submit');
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
@@ -55,8 +55,8 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Fetch error:', error);
             // Network or other fetch-related error
             showMessage('error', 'Failed to connect to the server. Please check if the backend is running.');
-            contactForm.querySelector('.btn-submit').textContent = 'Send Message';
-            contactForm.querySelector('.btn-submit').disabled = false;
+            contactForm.querySelector('button[type="submit"]').textContent = 'Send';
+            contactForm.querySelector('button[type="submit"]').disabled = false;
         }
     });
 
@@ -75,3 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000);
     }
 });
+
+// Function called by the hero button
+function scrollToSection() {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+        projectsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+}
